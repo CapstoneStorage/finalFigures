@@ -46,6 +46,6 @@ hold off
 
 title('Workload: 0.5');
 
-saveas(figure(1),foldername+'/figure_network_cpufreq_50'+'.png');
-saveas(figure(1),foldername+'/figure_network_cpufreq_50'+'.fig');
-saveas(figure(1),foldername+'/figure_network_cpufreq_50'+'.pdf');
+saveas(figure(1),foldername+'/figure_network_cpufreq'+'.png');
+saveas(figure(1),foldername+'/figure_network_cpufre'+'.fig');
+saveas(figure(1),foldername+'/figure_network_cpufreq'+'.pdf');
