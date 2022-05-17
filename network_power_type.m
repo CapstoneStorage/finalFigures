@@ -1,63 +1,51 @@
 close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% NETWORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-net = [1000
-1400
-1700
-2000
-5000
-8000
-11000
-14000
-17000
-20000
-23000
-26000];
-%% TOTAL POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-total = [11.812171
-9.227931
-8.231378
-6.764741
-4.148114
-3.224598
-2.524337
-2.364924
-1.711428
-1.444842
-1.962017
-1.574438];
-%% CPU POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-cpu = [5.471093
-3.211692
-3.306247
-2.35922
-2.048021
-1.919582
-1.623044
-1.600164
-1.044035
-0.833972
-1.498232
-1.148923];
-%% NETWORK POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-network = [6.341078
-6.016239
-4.925131
-4.405522
-2.100093
-1.305016
-0.901293
-0.76476
-0.667393
-0.61087
-0.463785
-0.425516];
 %% TRIALS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 trial = 1;
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "../figures/220405";
+foldername = "C:\Users\user\Desktop\figures\220514";
 % mkdir(foldername);
+%% NETWORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+net = [
+10
+20
+30
+40
+50
+];
+%% TOTAL POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+total = [
+21.147943
+15.880218
+11.91594
+9.928706
+8.03074
+];
+%% CPU POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+cpu = [
+8.710881
+4.39641
+2.674283
+2.643978
+1.480901
+];
+%% MEMORY POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+memory = [
+2.247842
+2.804661
+2.133584
+2.156888
+1.544052
+];
+%% NETWORK POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+network = [
+10.189219
+8.679147
+7.108073
+5.127841
+5.005787
+];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
 clf
@@ -65,21 +53,28 @@ hold on
 grid on
 box on
 X = categorical(net);
+
+%total = total / 23.592769;
+%cpu = cpu / 23.592769;
+%network =  network / 23.592769;
+%memory = memory / 23.592769;
+
 plot(X, total, 'Color', 'r', 'Marker', '*', 'Markersize', 7, 'LineWidth', 1);
 plot(X, cpu, 'Color', 'k', 'Marker', 'o', 'Markersize', 7, 'LineWidth', 1);
-plot(X, network, 'Color', 'b', 'Marker', 'diamond', 'Markersize', 7, 'LineWidth', 1);
+plot(X, network, 'Color', 'b', 'Marker', '^', 'Markersize', 7, 'LineWidth', 1);
+plot(X, memory, 'Color', 'g', 'Marker', 'diamond', 'Markersize', 7, 'LineWidth', 1);
 
 % xlim([0 1]);
-ylim([0 40]);
+% ylim([0 40]);
 
-legend('Total', 'CPU', 'Network', 'Location','northeast');
+legend('Total', 'CPU', 'Network', 'Memory',  'Location','northeast');
 
-xlabel("Network");
+xlabel("Network (Mbps)");
 ylabel('Power');
 
 set(gca,'fontsize',12);
 title('Workload: 0.5');
 
-saveas(figure(1),foldername+'/figure_network_power_type_covs_50'+'.png');
-saveas(figure(1),foldername+'/figure_network_power_type_covs_50'+'.fig');
-saveas(figure(1),foldername+'/figure_network_power_type_covs_50'+'.pdf');
+saveas(figure(1),foldername+'/figure_network_power_type'+'.png');
+saveas(figure(1),foldername+'/figure_network_power_type'+'.fig');
+saveas(figure(1),foldername+'/figure_network_power_type'+'.pdf');
