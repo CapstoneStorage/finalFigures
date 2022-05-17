@@ -1,35 +1,18 @@
 close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-algorithm = ["Default", "DVFS", "Offloading", "COVS"];
-power = [
-    15.46041	0;
-    7.504255	0;
-    1.867474	0.566528;
-    0.972928	0.521008;
-];
-power = [
-    25.527182	0;
-    18.26586	0;
-    3.390448	1.056337;
-    1.623044	0.901293;
-];
-power = [
-    35.644513	0;
-    30.826227	0;
-    5.114503	1.455302;
-    1.919873	1.361558;
-];
-power = [
-    46.727052	0;
-    45.637649	0;
-    8.506027	2.07448;
-    10.70813	1.540232;
-];
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "../figures/220405";
+foldername = "C:\Users\user\Desktop\figures\220514";
 % mkdir(foldername);
+%% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+algorithm = ["Default", "DVFS", "Offloading", "ECVS"];
+
+power = [
+    39.941684	4.29885	0
+    38.138081	4.300411	0
+    6.6357	3.032793	4.128705
+    2.895614	3.459691	3.837787
+];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
 clf
@@ -38,6 +21,7 @@ grid on
 box on
 X = categorical(algorithm);
 X = reordercats(X, algorithm);
+% power02 = power02 /10.355834;
 b = bar(X, power, 'stacked',  'FaceColor', 'flat');
 
 colorSet = parula(2);
@@ -50,13 +34,13 @@ ytips = b.YEndPoints;
 xlabel('Algorithms');
 
 set(gca,'fontsize',12, 'YColor', 'k');
-legend('Active', 'Network','Location', 'northeast');
+legend('CPU', 'Memory', 'Network','Location', 'northeast');
 ylabel('Power');
 
 hold off
 
-title('Workload: 0.9');
+title('Workload: 0.8');
 
-saveas(figure(1),foldername+'/figure_power_algorithm_abc'+'.png');
-saveas(figure(1),foldername+'/figure_network_algorithm_abc'+'.fig');
-saveas(figure(1),foldername+'/figure_network_algorithm_abc'+'.pdf');
+saveas(figure(1),foldername+'/figure_power_algorithm_08_120'+'.png');
+saveas(figure(1),foldername+'/figure_power_algorithm_08_120'+'.fig');
+saveas(figure(1),foldername+'/figure_power_algorithm_08_120'+'.pdf');
