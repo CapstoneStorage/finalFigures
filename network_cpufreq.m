@@ -2,22 +2,16 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220514";
+foldername = "C:\Users\user\Desktop\figures\220517\final";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 network = [
 10
 20
-30
-40
-50
 ];
 cpufreq = [
-16 31 42 11
-16 18 34 32
-14 23 29 34
-16 14 40 30
-16 19 28 37
+26.1	34.3	29	10.6
+15.8	28.3	33.8	22.1
 ];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
