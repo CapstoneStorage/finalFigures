@@ -2,20 +2,16 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220514";
+foldername = "C:\Users\user\Desktop\figures\220517\final";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 workload = [
 0.2
 0.3
-0.4
-0.5
 ];
 cpufreq = [
-18 17 25 40 
-11 24 22 43 
-15 20 22 43 
-17 23 26 34 
+6.9	    20.1	27.6	45.4
+10.6	28	    38.4	23
 ];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
@@ -35,16 +31,17 @@ end
 xtips = b.XEndPoints;
 ytips = b.YEndPoints;
 xlabel('Workload');
-
+ylabel('CPU Frequency (%)');
 % plot(X, offloading);
 
-set(gca,'fontsize',12, 'YColor', 'k');
-legend('1', '0.5', '0.25', '0.125','Location', 'southeast');
-ylabel('CPU Frequency (%)');
+set(gca,'fontsize',14, 'YColor', 'k');
+lgd = legend('1', '0.5', '0.25', '0.125','Location', 'northwest');
+set(lgd, 'fontsize', 14)
+
 
 hold off
 
-title('Network: 80');
+% title('Network: 80');
 
 saveas(figure(1),foldername+'/figure_workload_cpufreq'+'.png');
 saveas(figure(1),foldername+'/figure_workload_cpufreq'+'.fig');
