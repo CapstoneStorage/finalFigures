@@ -3,38 +3,19 @@ clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 trial = 1;
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220514";
+foldername = "C:\Users\user\Desktop\figures\220517\final";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 workload = [
 0.2
 0.3
-0.4
 ];
 %% TOTAL POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-total = [
-2.113982
-3.876613
-4.905618
+power = [
+    2.7786972	0.5537546	1.4193747	0.8055677
+    4.4289406	1.0132512	1.7825121	1.6331772
 ];
-%% CPU POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-cpu = [
-0.642497
-1.220493
-1.657057
-];
-%% MEMORY POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-memory = [
-0.821906
-1.649539
-1.34733
-];
-%% NETWORK POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-network = [
-0.641685
-1.584577
-2.337795 
-];
+
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
 clf
@@ -47,20 +28,22 @@ X = categorical(workload);
 %cpu = cpu / 34.925583;
 %network =  network / 34.925583;
 %memory = memory / 34.925583;
+power = power/13.9278219;
 
-plot(X, total, 'Color', 'r', 'Marker', '*', 'Markersize', 7, 'LineWidth', 1);
-plot(X, cpu, 'Color', 'k', 'Marker', 'o', 'Markersize', 7, 'LineWidth', 1);
-plot(X, network, 'Color', 'b', 'Marker', '^', 'Markersize', 7, 'LineWidth', 1);
-plot(X, memory, 'Color', 'g', 'Marker', 'diamond', 'Markersize', 7, 'LineWidth', 1);
+plot(X, power(:,1), 'Color', 'r', 'Marker', '*', 'Markersize', 9, 'LineWidth', 1);
+plot(X, power(:,2), 'Color', 'k', 'Marker', 'o', 'Markersize', 9, 'LineWidth', 1);
+plot(X, power(:,3), 'Color', 'b', 'Marker', '^', 'Markersize', 9, 'LineWidth', 1);
+plot(X, power(:,4), 'Color', 'g', 'Marker', 'diamond', 'Markersize', 9, 'LineWidth', 1);
 
 % ylim([0 50]);
 
-legend('Total', 'CPU', 'Network', 'Memory',  'Location','northwest');
+lgd = legend('Total', 'CPU', 'Memory', 'Network',  'Location','northwest');
+set(lgd, 'fontsize', 14);
 xlabel("Workload");
-ylabel('Power');
 %title('Power')
+ylabel('Relative Energy');
 
-set(gca,'fontsize',12);
+set(gca,'fontsize', 14);
 
 saveas(figure(1),foldername+'/figure_workload_power_type'+'.png');
 saveas(figure(1),foldername+'/figure_workload_power_type'+'.fig');
