@@ -2,16 +2,13 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220514";
+foldername = "C:\Users\user\Desktop\figures\220517\final";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-algorithm = ["Default", "DVFS", "Offloading", "ECVS"];
+algorithm = ["Default", "DVFS", "Offloading", "TOVS"];
 
 power = [
-    39.941684	4.29885	0
-    38.138081	4.300411	0
-    6.6357	3.032793	4.128705
-    2.895614	3.459691	3.837787
+    39.9255781	4.0184518	0
 ];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
@@ -21,7 +18,7 @@ grid on
 box on
 X = categorical(algorithm);
 X = reordercats(X, algorithm);
-% power02 = power02 /10.355834;
+power = power / (39.9255781 + 4.0184518);
 b = bar(X, power, 'stacked',  'FaceColor', 'flat');
 
 colorSet = parula(2);
@@ -32,14 +29,15 @@ end
 xtips = b.XEndPoints;
 ytips = b.YEndPoints;
 xlabel('Algorithms');
+ylabel('Relative Energy');
 
-set(gca,'fontsize',12, 'YColor', 'k');
-legend('CPU', 'Memory', 'Network','Location', 'northeast');
-ylabel('Power');
+set(gca,'fontsize',14, 'YColor', 'k');
+lgd = legend('CPU', 'Memory', 'Network','Location', 'northeast');
+set(lgd, 'fontsize', 14);
 
 hold off
 
-title('Workload: 0.8');
+%title('Workload: 0.8');
 
 saveas(figure(1),foldername+'/figure_power_algorithm_08_120'+'.png');
 saveas(figure(1),foldername+'/figure_power_algorithm_08_120'+'.fig');
