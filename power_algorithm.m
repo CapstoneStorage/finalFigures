@@ -2,13 +2,13 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220517\final";
+foldername = "C:\Users\user\Desktop\figures\220626";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-algorithm = ["Default", "DVFS", "Offloading", "TOVS"];
+algorithm = ["Baseline", "DVFS", "Offloading", "Co-TOMS"];
 
 power = [
-    39.9255781	4.0184518	0
+  39.7037994 4.010533	0 
 ];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
@@ -18,7 +18,7 @@ grid on
 box on
 X = categorical(algorithm);
 X = reordercats(X, algorithm);
-power = power / (39.9255781 + 4.0184518);
+% power = power / (39.7037994 + 4.010533);
 b = bar(X, power, 'stacked',  'FaceColor', 'flat');
 
 colorSet = parula(2);
