@@ -2,7 +2,7 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220517\final";
+foldername = "C:\Users\User\Desktop\figures\220626";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 workload = [
@@ -10,11 +10,9 @@ workload = [
 ];
 power =[
 2.7786972
-4.4289406
 ];
 offloading =[
 0.723
-0.73
 ];
 %% plot %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 figure(1)
@@ -52,7 +50,7 @@ set(gca,'fontsize', 14, 'YColor', 'k');
 %p = get(xh, 'position');
 %p(2) = 2*p(2);
 %set(xh, 'position', p);
-%ylim([0.6 0.9])
+%ylim([0.5 1])
 
 
 lgd = legend('Power', 'Offloading Ratio','Location', 'northwest');
