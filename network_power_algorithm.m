@@ -4,7 +4,7 @@ clear all;
 %% TRIALS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 trial = 1;
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220517\final";
+foldername = "C:\Users\User\Desktop\figures\220626";
 % mkdir(foldername);
 %% NETWORK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 network = [
@@ -52,7 +52,7 @@ plot(X, D, 'Color', 'k', 'Marker', 'o', 'Markersize', 9, 'LineWidth', 1);
 % xlim([0 1]);
 ylim([0 1.2]);
 
-lgd = legend('TOVS','Offloading', 'DVFS', 'Default', 'Location','northwest', 'NumColumns', 1);
+lgd = legend('Co-TOMS','Offloading', 'DVFS', 'Baseline', 'Location','northwest', 'NumColumns', 1);
 set(lgd, 'fontsize', 14)
 xlabel("Network (Mbps)");
 ylabel('Relative Energy');
