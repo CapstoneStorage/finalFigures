@@ -2,7 +2,7 @@ close all;
 clear all;
 %% parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% directory %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-foldername = "C:\Users\user\Desktop\figures\220517\final";
+foldername = "C:\Users\User\Desktop\figures\220626";
 % mkdir(foldername);
 %% WORKLOAD POWER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 network = [
@@ -54,7 +54,7 @@ set(gca,'fontsize', 14, 'YColor', 'k');
 %p(2) = 2*p(2);
 %set(xh, 'position', p);
 %ylab2.Position(1) = 13.7;
-%ylim([0 1])
+%ylim([0.5 1])
 
 lgd = legend('Power', 'Offloading Ratio','Location', 'northwest');
 set(lgd, 'fontsize', 14);
